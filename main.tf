@@ -17,13 +17,13 @@ resource "digitalocean_vpc" "example" {
 }
 
 resource "digitalocean_kubernetes_cluster" "example" {
-  name  = "my-cluster"
+  name  = var.k8s_clustername
   region  = var.region
-  version = var.version
+  version = var.k8s_version
   node_pool {
-    name       = "default"
+    name       = var.k8s_poolname
     size       = "s-2vcpu-2gb"
-    node_count = 3
+    node_count = var.k8s_count
   }
   vpc_uuid = digitalocean_vpc.example.id
 }
