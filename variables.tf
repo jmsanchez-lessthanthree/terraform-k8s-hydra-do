@@ -7,11 +7,11 @@ variable "region" {
 }
 
 variable "k8s_clustername" {
-  default = "clusterwim"
+  default = "mycluster"
 }
 
 variable "k8s_version" {
-  default = "1.19.3-do.3"
+  default = "1.28.2-do.0"
 }
 
 variable "k8s_poolname" {

@@ -19,7 +19,7 @@ resource "digitalocean_vpc" "example" {
 resource "digitalocean_kubernetes_cluster" "example" {
   name  = "my-cluster"
   region  = var.region
-  version = "1.21.1-do.2"
+  version = var.version
   node_pool {
     name       = "default"
     size       = "s-2vcpu-2gb"
