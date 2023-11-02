@@ -1,5 +1,5 @@
 variable "do_token" {
-  default = "dop_v1_54460586066fffaffc344d9027dd79c49cd32439d4a386809cfbfe8cc958838d"
+  default = ${{secrets.TOKEN_DO}}
 }
 
 variable "region" {
