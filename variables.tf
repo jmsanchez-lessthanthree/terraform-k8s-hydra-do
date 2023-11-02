@@ -1,9 +1,9 @@
 variable "do_token" {
-  default = "dop_v1_9e5b788740080f20f01760f7bd52e2bbb022ca6878a4037bebc2e7de45bcc57d"
+  default = "dop_v1_54460586066fffaffc344d9027dd79c49cd32439d4a386809cfbfe8cc958838d"
 }
 
 variable "region" {
-  default = "ams3"
+  default = "fra1"
 }
 
 variable "k8s_clustername" {

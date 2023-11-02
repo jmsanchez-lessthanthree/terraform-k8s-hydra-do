@@ -11,24 +11,19 @@ terraform {
   }
 }
 
-resource "digitalocean_kubernetes_cluster" "kubernetes_cluster" {
-  name    = var.k8s_clustername
+resource "digitalocean_vpc" "example" {
+  name = "vpc.chema"
   region  = var.region
-  version = var.k8s_version
-
-  tags = ["k8s"]
-
-  # This default node pool is mandatory
-  node_pool {
-    name       = var.k8s_poolname
-    size       = "s-2vcpu-2gb"
-    auto_scale = false
-    node_count = var.k8s_count
-    tags       = ["node-pool-tag"]
-  }
-
 }
 
-output "cluster-id" {
-  value = digitalocean_kubernetes_cluster.kubernetes_cluster.id
+resource "digitalocean_kubernetes_cluster" "example" {
+  name  = "my-cluster"
+  region  = var.region
+  version = "1.21.1-do.2"
+  node_pool {
+    name       = "default"
+    size       = "s-2vcpu-2gb"
+    node_count = 3
+  }
+  vpc_uuid = digitalocean_vpc.example.id
 }
